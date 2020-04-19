@@ -1,0 +1,12 @@
+C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\bin\Debug\yazgel2-otobus.exe.config
+C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\bin\Debug\yazgel2-otobus.exe
+C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\bin\Debug\yazgel2-otobus.pdb
+C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\obj\Debug\yazgel2_otobus.Form1.resources
+C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\obj\Debug\yazgel2_otobus.Properties.Resources.resources
+C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\obj\Debug\yazgel2-otobus.csproj.GenerateResource.cache
+C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\obj\Debug\yazgel2-otobus.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\obj\Debug\yazgel2-otobus.exe
+C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\obj\Debug\yazgel2-otobus.pdb
+C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\obj\Debug\yazgel2_otobus.seferEkle.resources
+C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\obj\Debug\yazgel2_otobus.anasayfa.resources
+C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\obj\Debug\yazgel2-otobus.csprojAssemblyReference.cache
