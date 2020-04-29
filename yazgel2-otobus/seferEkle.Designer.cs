@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(seferEkle));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.otbsTip = new System.Windows.Forms.ComboBox();
+            this.guzergah = new System.Windows.Forms.ComboBox();
             this.trhBox = new System.Windows.Forms.DateTimePicker();
             this.fytBox = new System.Windows.Forms.TextBox();
             this.plkBox = new System.Windows.Forms.TextBox();
             this.kptBox = new System.Windows.Forms.TextBox();
             this.ylcBox = new System.Windows.Forms.TextBox();
-            this.otbsBox = new System.Windows.Forms.TextBox();
-            this.grzBox = new System.Windows.Forms.TextBox();
             this.sfrBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -59,13 +59,13 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.otbsTip);
+            this.panel1.Controls.Add(this.guzergah);
             this.panel1.Controls.Add(this.trhBox);
             this.panel1.Controls.Add(this.fytBox);
             this.panel1.Controls.Add(this.plkBox);
             this.panel1.Controls.Add(this.kptBox);
             this.panel1.Controls.Add(this.ylcBox);
-            this.panel1.Controls.Add(this.otbsBox);
-            this.panel1.Controls.Add(this.grzBox);
             this.panel1.Controls.Add(this.sfrBox);
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.label8);
@@ -81,11 +81,31 @@
             this.panel1.Size = new System.Drawing.Size(929, 395);
             this.panel1.TabIndex = 1;
             // 
+            // otbsTip
+            // 
+            this.otbsTip.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.otbsTip.FormattingEnabled = true;
+            this.otbsTip.Location = new System.Drawing.Point(304, 124);
+            this.otbsTip.Name = "otbsTip";
+            this.otbsTip.Size = new System.Drawing.Size(171, 28);
+            this.otbsTip.TabIndex = 6;
+            this.otbsTip.DropDownClosed += new System.EventHandler(this.otbsTip_DropDownClosed);
+            // 
+            // guzergah
+            // 
+            this.guzergah.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.guzergah.FormattingEnabled = true;
+            this.guzergah.Location = new System.Drawing.Point(304, 82);
+            this.guzergah.Name = "guzergah";
+            this.guzergah.Size = new System.Drawing.Size(171, 28);
+            this.guzergah.TabIndex = 6;
+            this.guzergah.DropDownClosed += new System.EventHandler(this.guzergah_DropDownClosed);
+            // 
             // trhBox
             // 
             this.trhBox.CalendarFont = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.trhBox.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.trhBox.Location = new System.Drawing.Point(304, 340);
+            this.trhBox.Location = new System.Drawing.Point(304, 338);
             this.trhBox.Name = "trhBox";
             this.trhBox.Size = new System.Drawing.Size(171, 27);
             this.trhBox.TabIndex = 2;
@@ -93,7 +113,7 @@
             // fytBox
             // 
             this.fytBox.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.fytBox.Location = new System.Drawing.Point(304, 297);
+            this.fytBox.Location = new System.Drawing.Point(304, 295);
             this.fytBox.Multiline = true;
             this.fytBox.Name = "fytBox";
             this.fytBox.Size = new System.Drawing.Size(171, 29);
@@ -103,7 +123,7 @@
             // plkBox
             // 
             this.plkBox.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.plkBox.Location = new System.Drawing.Point(304, 254);
+            this.plkBox.Location = new System.Drawing.Point(304, 252);
             this.plkBox.Multiline = true;
             this.plkBox.Name = "plkBox";
             this.plkBox.Size = new System.Drawing.Size(171, 29);
@@ -112,7 +132,7 @@
             // kptBox
             // 
             this.kptBox.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.kptBox.Location = new System.Drawing.Point(304, 211);
+            this.kptBox.Location = new System.Drawing.Point(304, 209);
             this.kptBox.Multiline = true;
             this.kptBox.Name = "kptBox";
             this.kptBox.Size = new System.Drawing.Size(171, 29);
@@ -121,30 +141,13 @@
             // ylcBox
             // 
             this.ylcBox.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.ylcBox.Location = new System.Drawing.Point(304, 168);
+            this.ylcBox.Location = new System.Drawing.Point(304, 166);
             this.ylcBox.Multiline = true;
             this.ylcBox.Name = "ylcBox";
             this.ylcBox.Size = new System.Drawing.Size(171, 29);
             this.ylcBox.TabIndex = 1;
             this.ylcBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ylcBox_KeyPress);
-            // 
-            // otbsBox
-            // 
-            this.otbsBox.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.otbsBox.Location = new System.Drawing.Point(304, 125);
-            this.otbsBox.Multiline = true;
-            this.otbsBox.Name = "otbsBox";
-            this.otbsBox.Size = new System.Drawing.Size(171, 29);
-            this.otbsBox.TabIndex = 1;
-            // 
-            // grzBox
-            // 
-            this.grzBox.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.grzBox.Location = new System.Drawing.Point(304, 82);
-            this.grzBox.Multiline = true;
-            this.grzBox.Name = "grzBox";
-            this.grzBox.Size = new System.Drawing.Size(171, 29);
-            this.grzBox.TabIndex = 1;
+            this.ylcBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ylcBox_KeyUp);
             // 
             // sfrBox
             // 
@@ -240,9 +243,9 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(20)))), ((int)(((byte)(96)))));
             this.panel2.Controls.Add(this.vzgBtn);
             this.panel2.Controls.Add(this.ekleBtn);
-            this.panel2.Location = new System.Drawing.Point(754, 136);
+            this.panel2.Location = new System.Drawing.Point(776, 136);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(174, 117);
+            this.panel2.Size = new System.Drawing.Size(152, 117);
             this.panel2.TabIndex = 5;
             // 
             // vzgBtn
@@ -326,12 +329,12 @@
         private System.Windows.Forms.TextBox plkBox;
         private System.Windows.Forms.TextBox kptBox;
         private System.Windows.Forms.TextBox ylcBox;
-        private System.Windows.Forms.TextBox otbsBox;
-        private System.Windows.Forms.TextBox grzBox;
         private System.Windows.Forms.TextBox sfrBox;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button vzgBtn;
         private System.Windows.Forms.Button ekleBtn;
+        private System.Windows.Forms.ComboBox guzergah;
+        private System.Windows.Forms.ComboBox otbsTip;
     }
 }

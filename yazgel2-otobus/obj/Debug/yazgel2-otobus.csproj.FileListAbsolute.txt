@@ -9,4 +9,6 @@ C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\obj\Debug\yazgel2-otob
 C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\obj\Debug\yazgel2-otobus.pdb
 C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\obj\Debug\yazgel2_otobus.seferEkle.resources
 C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\obj\Debug\yazgel2_otobus.anasayfa.resources
+C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\obj\Debug\yazgel2_otobus.biletSat.resources
+C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\obj\Debug\yazgel2_otobus.seferGoster.resources
 C:\Users\DELL\Desktop\ders\yazgel2-otobüs\yazgel2-otobus\obj\Debug\yazgel2-otobus.csprojAssemblyReference.cache

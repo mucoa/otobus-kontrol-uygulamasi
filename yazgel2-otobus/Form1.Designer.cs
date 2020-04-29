@@ -42,11 +42,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.anasayfa1 = new yazgel2_otobus.anasayfa();
+            this.biletSat1 = new yazgel2_otobus.biletSat();
             this.seferEkle1 = new yazgel2_otobus.seferEkle();
+            this.anasayfa1 = new yazgel2_otobus.anasayfa();
+            this.seferGoster1 = new yazgel2_otobus.seferGoster();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -137,6 +138,7 @@
             this.sfrBtn.Text = "       Seferler";
             this.sfrBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.sfrBtn.UseVisualStyleBackColor = true;
+            this.sfrBtn.Click += new System.EventHandler(this.sfrBtn_Click);
             // 
             // homeBtn
             // 
@@ -170,6 +172,9 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(962, 15);
             this.panel3.TabIndex = 2;
+            this.panel3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDown);
+            this.panel3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseMove);
+            this.panel3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseUp);
             // 
             // panel4
             // 
@@ -187,7 +192,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(19, 114);
+            this.label3.Location = new System.Drawing.Point(23, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(83, 20);
             this.label3.TabIndex = 6;
@@ -200,7 +205,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(11, 92);
+            this.label2.Location = new System.Drawing.Point(19, 86);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 19);
             this.label2.TabIndex = 6;
@@ -209,19 +214,11 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(26, 20);
+            this.pictureBox1.Location = new System.Drawing.Point(33, 16);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(69, 55);
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(56)))), ((int)(((byte)(94)))));
-            this.panel5.Location = new System.Drawing.Point(314, 14);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(5, 10);
-            this.panel5.TabIndex = 5;
             // 
             // button5
             // 
@@ -236,6 +233,7 @@
             this.button5.TabIndex = 7;
             this.button5.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -251,12 +249,12 @@
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // anasayfa1
+            // biletSat1
             // 
-            this.anasayfa1.Location = new System.Drawing.Point(202, 210);
-            this.anasayfa1.Name = "anasayfa1";
-            this.anasayfa1.Size = new System.Drawing.Size(959, 417);
-            this.anasayfa1.TabIndex = 8;
+            this.biletSat1.Location = new System.Drawing.Point(203, 210);
+            this.biletSat1.Name = "biletSat1";
+            this.biletSat1.Size = new System.Drawing.Size(962, 429);
+            this.biletSat1.TabIndex = 11;
             // 
             // seferEkle1
             // 
@@ -265,14 +263,30 @@
             this.seferEkle1.Size = new System.Drawing.Size(958, 420);
             this.seferEkle1.TabIndex = 9;
             // 
+            // anasayfa1
+            // 
+            this.anasayfa1.Location = new System.Drawing.Point(202, 210);
+            this.anasayfa1.Name = "anasayfa1";
+            this.anasayfa1.Size = new System.Drawing.Size(959, 417);
+            this.anasayfa1.TabIndex = 8;
+            // 
+            // seferGoster1
+            // 
+            this.seferGoster1.Location = new System.Drawing.Point(203, 210);
+            this.seferGoster1.Name = "seferGoster1";
+            this.seferGoster1.Size = new System.Drawing.Size(962, 429);
+            this.seferGoster1.TabIndex = 12;
+            this.seferGoster1.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1161, 630);
+            this.Controls.Add(this.seferGoster1);
+            this.Controls.Add(this.biletSat1);
             this.Controls.Add(this.seferEkle1);
             this.Controls.Add(this.anasayfa1);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.panel4);
@@ -282,6 +296,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
@@ -296,7 +311,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -310,6 +324,8 @@
         private System.Windows.Forms.Button button7;
         private anasayfa anasayfa1;
         private seferEkle seferEkle1;
+        private biletSat biletSat1;
+        private seferGoster seferGoster1;
     }
 }
 

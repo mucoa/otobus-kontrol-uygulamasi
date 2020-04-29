@@ -1,17 +1,35 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace yazgel2_otobus
 {
+    public class Koltuk
+    {
+        public Koltuk next;
+        public Koltuk prev;
+        public string sefer;
+        public int koltukNo;
+        public string tcNo;
+        public string adSoyad;
+        public string cins;
+        public string cepTel;
+        public string dTarih;
+        public string mail;
+    }
+
     public class Dugum
     {
         public Dugum next;
+        public Koltuk koltuk;
         public string seferNo;
-        public string seferTarih;
+        public DateTime seferTarih;
         public int yolcuKapasite;
         public string plaka;
         public string kaptan;
@@ -21,11 +39,12 @@ namespace yazgel2_otobus
         
     }
 
-    public class LinkedList
+    public static class LinkedList
     {
-        private Dugum head;
+        public static Dugum head;
+        public static Koltuk ilk;
 
-        public void OneEkle(string sfrNo, string sfrTrh, string plk, string kpt, string otbs, string guzrgh, int ylcKpt, double bltFyt)
+        public static void OneEkle(string sfrNo, DateTime sfrTrh, string plk, string kpt, string otbs, string guzrgh, int ylcKpt, double bltFyt)
         {
             Dugum addit = new Dugum();
 
@@ -37,23 +56,68 @@ namespace yazgel2_otobus
             addit.seferNo = sfrNo;
             addit.seferTarih = sfrTrh;
             addit.yolcuKapasite = ylcKpt;
+
+
             addit.next = head;
 
             head = addit;     
         }
-        //
-        public void dugumYazdir()
+
+        public static void dugumYazdir()
         {
-            Dugum aktif = head;
+            Dugum aktif = head; //listenin başına sarıyor!
             while (aktif != null)
             {
-                MessageBox.Show("sefer numarasi: "+aktif.seferNo+"\n"+"plaka : "+aktif.plaka);
+                MessageBox.Show(aktif.seferNo + "-");
                 aktif = aktif.next;
             }
         }
-
-        public void SonaEkle(string sfrNo, string sfrTrh, string plk, string kpt, string otbs, string guzrgh, int ylcKpt, double bltFyt)
+        public static ArrayList getir()
         {
+            ArrayList dugumlist = new ArrayList();
+            Dugum aktif = head;
+
+            while (aktif != null)
+            {
+                dugumlist.Add(aktif);
+                aktif = aktif.next;
+            }
+            return dugumlist;//Liste olarak döndürülüyor.
+        }
+        
+        public static Dugum dugumuGetir(string sfrNo)
+        {
+            Dugum aktif = head;
+
+            while (aktif != null)
+            {
+                if (aktif.seferNo == sfrNo)
+                {
+                    break;
+                }
+                aktif = aktif.next;
+            }
+            return aktif;
+        }
+
+
+        public static int seferSayisi()
+        {
+            int seferCount=0;
+            Dugum aktif = head;
+
+            while(aktif != null)
+            {
+                aktif = aktif.next;
+                seferCount++;
+            }
+
+            return seferCount;
+        }
+
+        public static void SonaEkle(string sfrNo, DateTime sfrTrh, string plk, string kpt, string otbs, string guzrgh, int ylcKpt, double bltFyt)
+        {
+
             if (head == null)
             {
                 Dugum first = new Dugum();
@@ -68,7 +132,15 @@ namespace yazgel2_otobus
                 first.seferTarih = sfrTrh;
                 first.yolcuKapasite = ylcKpt;
 
+                for (int i = 1; i <= first.yolcuKapasite; i++)
+                {
+                    koltukEkle(first, i);
+                }
+
+
                 head = first;
+               
+                MessageBox.Show("Sefer eklenmiştir!", "Başarılı", MessageBoxButtons.OK,MessageBoxIcon.Information);
             }
             else 
             { 
@@ -83,6 +155,11 @@ namespace yazgel2_otobus
                 addit.seferTarih = sfrTrh;
                 addit.yolcuKapasite = ylcKpt;
 
+                for (int i = 1; i <= addit.yolcuKapasite; i++)
+                {
+                    koltukEkle(addit, i);
+                }
+
                 Dugum aktif = head;
 
                 while (aktif.next != null)
@@ -91,14 +168,100 @@ namespace yazgel2_otobus
                 }
 
                 aktif.next = addit;
-            }
-            //if (aktif.next != addit)
-            //{
-            //    MessageBox.Show("Sefer eklenemedi tekrar deneyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //}
-            //else
-            //    MessageBox.Show("Sefer eklenmiştir", "Başarılı")
 
+                if (aktif.next != addit)
+                {
+                    MessageBox.Show("Sefer eklenemedi tekrar deneyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Sefer eklenmiştir", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                    
+            }
+
+        }
+
+        public static void koltukEkle(Dugum aktif, int konum)
+        {
+            Koltuk yeniKoltuk = new Koltuk();
+
+            if (aktif.koltuk == null)
+            {          
+                yeniKoltuk.koltukNo = konum;
+                yeniKoltuk.sefer = aktif.seferNo;
+
+                aktif.koltuk = yeniKoltuk;
+            }
+            else
+            {
+                yeniKoltuk.koltukNo = konum;
+                yeniKoltuk.sefer = aktif.seferNo;
+
+                Koltuk ilk = aktif.koltuk;
+
+                while (ilk.next != null)
+                {
+                    ilk = ilk.next;
+                }
+                ilk.next = yeniKoltuk;
+            }
+                      
+        }
+
+        public static void koltukDoldur(Dugum aktif, int kolno, string tcno, string ceptel, string ad, string cinsiyet, string dtarih, string Mail)
+        {
+            Koltuk ilk = aktif.koltuk;
+            Koltuk ilkKoltuk = aktif.koltuk;
+
+            while( ilk.koltukNo != kolno)
+            {
+                ilk = ilk.next;
+            }
+            aktif.koltuk = ilk;
+            aktif.koltuk.mail = Mail;
+            aktif.koltuk.tcNo = tcno;
+            aktif.koltuk.adSoyad = ad;
+            aktif.koltuk.cepTel = ceptel;
+            aktif.koltuk.cins = cinsiyet;
+            aktif.koltuk.dTarih = dtarih;
+
+            aktif.koltuk = ilkKoltuk;
+
+            MessageBox.Show("İşlem onaylanmıştır.","",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+        }
+
+        public static ArrayList koltukGetir(Dugum aktif)
+        {
+            Dugum ilk = aktif;
+            ArrayList koltuklist = new ArrayList();
+            Koltuk ilkKoltuk = aktif.koltuk;
+
+            while (ilk.koltuk != null)
+            {
+                koltuklist.Add(ilk.koltuk);
+                ilk.koltuk = ilk.koltuk.next;
+            }
+            aktif.koltuk = ilkKoltuk;
+            return koltuklist;
+        }
+        
+        public static int koltukSayi(Dugum aktif)
+        {
+            Koltuk ilk = aktif.koltuk;
+
+            int sayac = 0;
+
+            while (ilk != null)
+            {
+                if (ilk.tcNo == null)
+                {
+                    sayac++;
+                }
+                ilk = ilk.next;
+            }
+            return sayac;
         }
 
         //public void arayaEkle(, string sfrNo, string sfrTrh, string plk, string kpt, string otbs, string guzrgh, int ylcKpt, float bltFyt)
@@ -123,7 +286,7 @@ namespace yazgel2_otobus
 
         //}
 
-        public void silme(string sfrno)
+        public static void silme(string sfrno)
         {
             Dugum deleted = new Dugum();
 

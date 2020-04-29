@@ -67,6 +67,14 @@
     <Compile Include="anasayfa.Designer.cs">
       <DependentUpon>anasayfa.cs</DependentUpon>
     </Compile>
+    <Compile Include="ArrayList.cs" />
+    <Compile Include="biletSat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="biletSat.Designer.cs">
+      <DependentUpon>biletSat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Class1.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,8 +90,17 @@
     <Compile Include="seferEkle.Designer.cs">
       <DependentUpon>seferEkle.cs</DependentUpon>
     </Compile>
+    <Compile Include="seferGoster.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="seferGoster.Designer.cs">
+      <DependentUpon>seferGoster.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="anasayfa.resx">
       <DependentUpon>anasayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="biletSat.resx">
+      <DependentUpon>biletSat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -99,6 +116,9 @@
     </Compile>
     <EmbeddedResource Include="seferEkle.resx">
       <DependentUpon>seferEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="seferGoster.resx">
+      <DependentUpon>seferGoster.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
