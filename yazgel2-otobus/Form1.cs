@@ -15,10 +15,11 @@ namespace yazgel2_otobus
     {
 
         seferGoster seferlerUC = new seferGoster();
-       
+
         public Form1()
         {
             InitializeComponent();
+            ayarlar.Visible = false;
             //Form1 myParent = (Form1)this.Parent;
             Controls.Add(seferlerUC);
             seferlerUC.Location= new Point(203, 210);
@@ -31,6 +32,7 @@ namespace yazgel2_otobus
         {
             sidePanel.Height = homeBtn.Height;
             sidePanel.Top = homeBtn.Top;
+            anasayfa1.anasayf();
             anasayfa1.BringToFront();
         }
 
@@ -44,13 +46,6 @@ namespace yazgel2_otobus
         private void button5_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        public void bltBtn_Click()
-        {
-            sidePanel.Height = bltBtn.Height;
-            sidePanel.Top = bltBtn.Top;
-            biletSat1.BringToFront();
         }
 
         public void sfrBtn_Click(object sender, EventArgs e)
@@ -73,14 +68,9 @@ namespace yazgel2_otobus
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            this.biletSat1.SpecialCondition += HandleSpecialCondition;
-        }
-        public void HandleSpecialCondition(object sender, EventArgs e)
-        {
-            MessageBox.Show("sadasd");
         }
 
-        int Move;
+        new int Move;
         int Mouse_X;
         int Mouse_Y;
         private void panel3_MouseUp(object sender, MouseEventArgs e)
@@ -103,6 +93,23 @@ namespace yazgel2_otobus
             {
                 this.SetDesktopLocation(MousePosition.X - Mouse_X, MousePosition.Y - Mouse_Y);
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (ayarlar.Visible == true)
+            {
+                ayarlar.Visible = false;
+            }
+            else
+            {
+                ayarlar.Visible = true;
+            }
+        }
+
+        private void kydetBtn_Click(object sender, EventArgs e)
+        {
+            LinkedList.DosyaKayit();
         }
     }
 }

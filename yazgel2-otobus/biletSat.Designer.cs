@@ -62,6 +62,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.geriButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lira)).BeginInit();
             this.koltukPanel.SuspendLayout();
@@ -95,6 +96,7 @@
             this.panel1.Controls.Add(this.lblKol23);
             this.panel1.Controls.Add(this.rezerveBtn);
             this.panel1.Controls.Add(this.tamamBtn);
+            this.panel1.Controls.Add(this.geriButton);
             this.panel1.Controls.Add(this.kltkBtn);
             this.panel1.Controls.Add(this.mailBox);
             this.panel1.Controls.Add(this.telBox);
@@ -115,7 +117,7 @@
             // 
             this.fytlbl.AutoSize = true;
             this.fytlbl.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.fytlbl.Location = new System.Drawing.Point(628, 122);
+            this.fytlbl.Location = new System.Drawing.Point(601, 114);
             this.fytlbl.Name = "fytlbl";
             this.fytlbl.Size = new System.Drawing.Size(46, 20);
             this.fytlbl.TabIndex = 17;
@@ -124,7 +126,7 @@
             // lira
             // 
             this.lira.Image = ((System.Drawing.Image)(resources.GetObject("lira.Image")));
-            this.lira.Location = new System.Drawing.Point(739, 93);
+            this.lira.Location = new System.Drawing.Point(712, 85);
             this.lira.Name = "lira";
             this.lira.Size = new System.Drawing.Size(40, 40);
             this.lira.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -144,7 +146,7 @@
             this.koltukPanel.Controls.Add(this.label10);
             this.koltukPanel.Controls.Add(this.label11);
             this.koltukPanel.Controls.Add(this.label12);
-            this.koltukPanel.Location = new System.Drawing.Point(402, 15);
+            this.koltukPanel.Location = new System.Drawing.Point(403, 20);
             this.koltukPanel.Name = "koltukPanel";
             this.koltukPanel.Size = new System.Drawing.Size(503, 348);
             this.koltukPanel.TabIndex = 2;
@@ -249,7 +251,7 @@
             // 
             this.fiyatlbl.AutoSize = true;
             this.fiyatlbl.Font = new System.Drawing.Font("Elephant", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fiyatlbl.Location = new System.Drawing.Point(678, 117);
+            this.fiyatlbl.Location = new System.Drawing.Point(651, 109);
             this.fiyatlbl.Name = "fiyatlbl";
             this.fiyatlbl.Size = new System.Drawing.Size(63, 31);
             this.fiyatlbl.TabIndex = 15;
@@ -303,11 +305,11 @@
             this.lblKol23.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblKol23.Image = ((System.Drawing.Image)(resources.GetObject("lblKol23.Image")));
             this.lblKol23.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblKol23.Location = new System.Drawing.Point(600, 39);
+            this.lblKol23.Location = new System.Drawing.Point(564, 39);
             this.lblKol23.Name = "lblKol23";
-            this.lblKol23.Size = new System.Drawing.Size(147, 47);
+            this.lblKol23.Size = new System.Drawing.Size(183, 47);
             this.lblKol23.TabIndex = 8;
-            this.lblKol23.Text = "Koltuk Sayısı:";
+            this.lblKol23.Text = "Koltuk Numarası:";
             this.lblKol23.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // rezerveBtn
@@ -346,9 +348,9 @@
             this.kltkBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.kltkBtn.Image = ((System.Drawing.Image)(resources.GetObject("kltkBtn.Image")));
             this.kltkBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.kltkBtn.Location = new System.Drawing.Point(157, 305);
+            this.kltkBtn.Location = new System.Drawing.Point(233, 305);
             this.kltkBtn.Name = "kltkBtn";
-            this.kltkBtn.Size = new System.Drawing.Size(155, 70);
+            this.kltkBtn.Size = new System.Drawing.Size(143, 58);
             this.kltkBtn.TabIndex = 3;
             this.kltkBtn.Text = "Koltuk Seç";
             this.kltkBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -454,6 +456,20 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Tc Kimlik Numarası:";
             // 
+            // geriButton
+            // 
+            this.geriButton.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.geriButton.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.geriButton.Image = ((System.Drawing.Image)(resources.GetObject("geriButton.Image")));
+            this.geriButton.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.geriButton.Location = new System.Drawing.Point(68, 305);
+            this.geriButton.Name = "geriButton";
+            this.geriButton.Size = new System.Drawing.Size(143, 58);
+            this.geriButton.TabIndex = 3;
+            this.geriButton.Text = "     Geri";
+            this.geriButton.UseVisualStyleBackColor = false;
+            this.geriButton.Click += new System.EventHandler(this.geriButton_Click);
+            // 
             // biletSat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -510,5 +526,6 @@
         private System.Windows.Forms.PictureBox lira;
         private System.Windows.Forms.Label fiyatlbl;
         private System.Windows.Forms.Label fytlbl;
+        private System.Windows.Forms.Button geriButton;
     }
 }

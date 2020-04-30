@@ -15,18 +15,12 @@ namespace yazgel2_otobus
     {
         ArrayList seciliKoltuklar = new ArrayList();
         Dugum seciliSefer;
-
-        public event EventHandler SpecialCondition;
-        private void RaiseSpecialCondition()
-        {
-            if (SpecialCondition != null) // If nobody subscribed to the event, it will be null.
-                SpecialCondition(this, EventArgs.Empty);
-        }
+        
 
         public biletSat()
         {
-            
             InitializeComponent();
+            
             koltukPanel.Visible = false;
             lblKol23.Visible = false;
             lblKol.Visible = false;
@@ -82,11 +76,11 @@ namespace yazgel2_otobus
                 dynamicButton.FlatAppearance.BorderSize = 0;
                 if (item.tcNo != null)
                 {
-                    if (item.cins != "erkek")
+                    if (item.cins == "Kadın")
                     {
                         dynamicButton.Image = Image.FromFile("C:/Users/DELL/Desktop/ders/yazgel2-otobüs/images/icons8-person-female-30.png");
                     }
-                    else if (item.cins != "kadın")
+                    else if (item.cins == "Erkek")
                     {
                         dynamicButton.Image = Image.FromFile("C:/Users/DELL/Desktop/ders/yazgel2-otobüs/images/icons8-administrator-male-30.png");
                     }
@@ -189,9 +183,16 @@ namespace yazgel2_otobus
         {
             if (tcBox.Text != "" && telBox.Text != "" && adBox.Text != "" && cinsBox.Text != "" && dtBox.Value > dtBox.MinDate && dtBox.Value < dtBox.MaxDate && mailBox.Text != "" && tcBox.Text.Length == tcBox.MaxLength && telBox.Text.Length == telBox.MaxLength)
             {
-                koltukPanel.Visible = true;
-                kltkBtn.Visible = false;
-                RaiseSpecialCondition();
+                if (!LinkedList.tcKontrol(seciliSefer, tcBox.Text))
+                {
+                    MessageBox.Show("Bu kimlik numarası adına kayıtlı yolcu bulunmaktadır!\nLütfen farklı bir kimlik numarası girin.", "Kimlik Numarası", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    tcBox.Text = "";
+                }
+                else
+                {
+                    koltukPanel.Visible = true;
+                    kltkBtn.Visible = false;
+                }
             }
             else
             {
@@ -237,6 +238,10 @@ namespace yazgel2_otobus
                         break;
                     }
                 }
+                seferGoster sfrgstrUC = new seferGoster();
+                Controls.Add(sfrgstrUC);
+                sfrgstrUC.ListSefer();
+                sfrgstrUC.BringToFront();
             }
         }
 
@@ -267,6 +272,10 @@ namespace yazgel2_otobus
                         break;
                     }
                 }
+                seferGoster sfrgstrUC = new seferGoster();
+                Controls.Add(sfrgstrUC);
+                sfrgstrUC.ListSefer();
+                sfrgstrUC.BringToFront();
             }
         }
 
@@ -309,6 +318,14 @@ namespace yazgel2_otobus
                 e.Handled = true;
                 MessageBox.Show("Lütfen bir harf giriniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void geriButton_Click(object sender, EventArgs e)
+        {
+            seferGoster sfrgstrUC = new seferGoster();
+            Controls.Add(sfrgstrUC);
+            sfrgstrUC.ListSefer();
+            sfrgstrUC.BringToFront();
         }
     }
 }

@@ -137,6 +137,7 @@
             this.kptBox.Name = "kptBox";
             this.kptBox.Size = new System.Drawing.Size(171, 29);
             this.kptBox.TabIndex = 1;
+            this.kptBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.kptBox_KeyPress);
             // 
             // ylcBox
             // 
@@ -147,7 +148,6 @@
             this.ylcBox.Size = new System.Drawing.Size(171, 29);
             this.ylcBox.TabIndex = 1;
             this.ylcBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ylcBox_KeyPress);
-            this.ylcBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.ylcBox_KeyUp);
             // 
             // sfrBox
             // 

@@ -7,6 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace yazgel2_otobus
 {
@@ -229,6 +230,181 @@ namespace yazgel2_otobus
             aktif.koltuk = ilkKoltuk;
 
             MessageBox.Show("İşlem onaylanmıştır.","",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+        }
+
+        public static void dugumDuzenle(Dugum aktif, string sfrNo, DateTime sfrTrh, string plk, string kpt, string otbs, string guzrgh, int ylcKpt, double bltFyt)
+        {
+            aktif.guzergah = guzrgh;
+            aktif.seferNo = sfrNo;
+            aktif.seferTarih = sfrTrh;
+            aktif.yolcuKapasite = ylcKpt;
+            aktif.biletFiyati = bltFyt;
+            aktif.plaka = plk;
+            aktif.kaptan = kpt;
+            aktif.otobus = otbs;
+
+            MessageBox.Show("Düzenleme işlemi başarılı.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        public static bool tcKontrol(Dugum aktif, string tcno)
+        {
+            Koltuk ilk = aktif.koltuk;
+            Koltuk ilkKoltuk = aktif.koltuk;
+            bool deger = true;
+
+            while (ilk != null)
+            {
+                if (ilk.tcNo == tcno)
+                {
+                    deger = false;
+                }
+                ilk = ilk.next;
+            }
+            aktif.koltuk = ilkKoltuk;
+            return deger;
+        }
+
+        public static bool sfrKontrol(string no)
+        {
+            bool deger = true;
+            Dugum aktif = head;
+
+            while (aktif != null)
+            {
+                if (aktif.seferNo == no)
+                {
+                    deger = false;
+                }
+                aktif = aktif.next;
+            }
+            return deger;
+        }
+        public static bool koltukBosalt(Dugum aktif, int kolno)
+        {
+            bool deger = false;
+            Koltuk ilk = aktif.koltuk;
+            Koltuk ilkKoltuk = aktif.koltuk;
+
+            while (ilk != null)
+            {
+                if (ilk.koltukNo == kolno)
+                {
+                    break;
+                }
+                ilk = ilk.next;
+            }
+
+            if (ilk != null)
+            {
+                aktif.koltuk = ilk;
+                aktif.koltuk.mail = null;
+                aktif.koltuk.tcNo = null;
+                aktif.koltuk.adSoyad = null;
+                aktif.koltuk.cepTel = null;
+                aktif.koltuk.cins = null;
+                aktif.koltuk.dTarih = null;
+
+                aktif.koltuk = ilkKoltuk;
+                deger = true;
+            }
+
+            return deger;
+        }
+
+        public static int toplamYolcu()
+        {
+            Dugum aktif = head;
+            int sayac = 0;
+            while (aktif != null)
+            {
+                Koltuk ilk = aktif.koltuk;
+
+                while (ilk != null)
+                {
+                    if (ilk.tcNo != null)
+                    {
+                        sayac++;
+                    }
+                    ilk = ilk.next;
+                }
+
+                aktif = aktif.next;
+            }
+
+            return sayac;
+        }
+
+        public static double toplamGelir()
+        {
+            Dugum aktif = head;
+            double sayac = 0;
+            while (aktif != null)
+            {
+                Koltuk ilk = aktif.koltuk;
+
+                while (ilk != null)
+                {
+                    if (ilk.tcNo != null)
+                    {
+                        sayac += aktif.biletFiyati;
+                    }
+                    ilk = ilk.next;
+                }
+
+                aktif = aktif.next;
+            }
+
+            return sayac;
+        }
+        
+        public static void DosyaKayit()
+        {
+            var path = @"c:\Users\DELL\Desktop\ders\yazgel2-otobüs\kayitlar\" +DateTime.Now.Date.ToString("dd/MM/yyyy")+".txt";
+            string strdetails = "{0, -20}{1, -20}{2,-20}{3, -20}{4, -20}{5, -20}{6, -20}{7, -20}";
+
+            List<string> satirlar = new List<string>();
+            satirlar.Add(String.Format(strdetails, "Sefer No", "Sefer Tarih", "Guzergah", "Plaka", "OtobusTip", "BiletFiyat", "YolcuKapasite", "Kaptan"));
+
+           
+
+            Dugum aktif = head;
+            while (aktif != null)
+            {
+                Koltuk ilk = aktif.koltuk;
+                satirlar.Add(String.Format(strdetails, aktif.seferNo, aktif.seferTarih, aktif.guzergah, aktif.plaka, aktif.otobus, aktif.biletFiyati, aktif.yolcuKapasite, aktif.kaptan));
+                satirlar.Add(String.Format(strdetails, "Koltuklar", "", "", "", "", "", "", ""));
+                while (ilk != null)
+                {
+                    
+                    if (ilk.tcNo != null)
+                    {
+                        satirlar.Add(String.Format(strdetails, "", ilk.koltukNo, ilk.tcNo, ilk.adSoyad, ilk.cepTel, ilk.cins, ilk.dTarih, ilk.mail));
+                    }
+                    else
+                    {
+                        satirlar.Add(String.Format(strdetails, "", ilk.koltukNo, "Boş", "", "", "", "", ""));
+                    }
+                    ilk = ilk.next;
+                }
+
+                aktif = aktif.next;
+            }
+            if (!File.Exists(path))
+            {
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    foreach (string item in satirlar)
+                    {
+                        sw.WriteLine(item);
+                    }
+                }
+                MessageBox.Show("Kayıt başarılı.","", MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Gün sonu kayıt işlemi yapılmıştır!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
 

@@ -49,25 +49,46 @@ namespace yazgel2_otobus
             
             if (otbsTip.SelectedIndex != 0 && guzergah.SelectedIndex != 0 && fytBox.Text != "" && ylcBox.Text != "" && plkBox.Text != "" && sfrBox.Text != "" && kptBox.Text != "")
             {
-                double fiyat = double.Parse(fytBox.Text);
+                double fiyat = double.Parse(fytBox.Text, System.Globalization.CultureInfo.InvariantCulture);
                 int yolcu = Int32.Parse(ylcBox.Text);
                 if (yolcu > 56)
                 {
                     yolcu = 56;
                 }
-                LinkedList.SonaEkle(sfrBox.Text.ToUpper(), trhBox.Value, plkBox.Text.ToUpper(), kptBox.Text, otbsTip.SelectedItem.ToString(), guzergah.SelectedItem.ToString(), yolcu, fiyat);
+                if (!LinkedList.sfrKontrol(sfrBox.Text))
+                {
+                    MessageBox.Show("Bu sefer numarasına kayıtlı bir sefer bulunmaktadır!\nLütfen farklı bir sefer numarası girin.", "Sefer Numarası", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    sfrBox.Text = "";
+                }
+                else
+                {
+                    LinkedList.SonaEkle(sfrBox.Text.ToUpper(), trhBox.Value, plkBox.Text.ToUpper(), kptBox.Text, otbsTip.SelectedItem.ToString(), guzergah.SelectedItem.ToString(), yolcu, fiyat);
 
-                fytBox.Text = "";
-                sfrBox.Text = "";
-                kptBox.Text = "";
-                plkBox.Text = "";
-                ylcBox.Text = "";
-                otbsTip.SelectedIndex = 0;
-                guzergah.SelectedIndex = 0;
+                    fytBox.Text = "";
+                    sfrBox.Text = "";
+                    kptBox.Text = "";
+                    plkBox.Text = "";
+                    ylcBox.Text = "";
+                    otbsTip.SelectedIndex = 0;
+                    guzergah.SelectedIndex = 0;
+                }
+                
             }
             else
             {
                 MessageBox.Show("Lütfen geçerli değerler giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void kptBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            Char chr = e.KeyChar;
+
+            if (!Char.IsLetter(chr) && chr != 8 && chr != 46)
+            {
+
+                e.Handled = true;
+                MessageBox.Show("Lütfen bir harf giriniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -109,10 +130,8 @@ namespace yazgel2_otobus
                 MessageBox.Show("Lütfen tip seçiniz !", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        
 
-        private void ylcBox_KeyUp(object sender, KeyEventArgs e)
-        {
 
-        }
     }
 }

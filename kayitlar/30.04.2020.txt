@@ -1,0 +1,35 @@
+Sefer No            Sefer Tarih         Guzergah            Plaka               OtobusTip           BiletFiyat          YolcuKapasite       Kaptan              
+2313123             30.04.2020 19:49:57 Kocaeli - Ankara    312321              Midibüs             312                 32                  ewq                 
+Koltuklar                                                                                                                                                       
+                    1                   Boş                                                                                                                     
+                    2                   Boş                                                                                                                     
+                    3                   Boş                                                                                                                     
+                    4                   Boş                                                                                                                     
+                    5                   Boş                                                                                                                     
+                    6                   Boş                                                                                                                     
+                    7                   Boş                                                                                                                     
+                    8                   Boş                                                                                                                     
+                    9                   Boş                                                                                                                     
+                    10                  Boş                                                                                                                     
+                    11                  Boş                                                                                                                     
+                    12                  Boş                                                                                                                     
+                    13                  Boş                                                                                                                     
+                    14                  Boş                                                                                                                     
+                    15                  Boş                                                                                                                     
+                    16                  Boş                                                                                                                     
+                    17                  Boş                                                                                                                     
+                    18                  Boş                                                                                                                     
+                    19                  Boş                                                                                                                     
+                    20                  Boş                                                                                                                     
+                    21                  Boş                                                                                                                     
+                    22                  Boş                                                                                                                     
+                    23                  Boş                                                                                                                     
+                    24                  Boş                                                                                                                     
+                    25                  Boş                                                                                                                     
+                    26                  Boş                                                                                                                     
+                    27                  Boş                                                                                                                     
+                    28                  Boş                                                                                                                     
+                    29                  Boş                                                                                                                     
+                    30                  Boş                                                                                                                     
+                    31                  Boş                                                                                                                     
+                    32                  Boş                                                                                                                     

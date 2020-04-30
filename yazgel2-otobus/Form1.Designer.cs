@@ -33,7 +33,6 @@
             this.sidePanel = new System.Windows.Forms.Panel();
             this.button7 = new System.Windows.Forms.Button();
             this.addSfrBtn = new System.Windows.Forms.Button();
-            this.bltBtn = new System.Windows.Forms.Button();
             this.sfrBtn = new System.Windows.Forms.Button();
             this.homeBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -44,13 +43,16 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.seferGoster1 = new yazgel2_otobus.seferGoster();
             this.biletSat1 = new yazgel2_otobus.biletSat();
             this.seferEkle1 = new yazgel2_otobus.seferEkle();
             this.anasayfa1 = new yazgel2_otobus.anasayfa();
-            this.seferGoster1 = new yazgel2_otobus.seferGoster();
+            this.ayarlar = new System.Windows.Forms.Panel();
+            this.kydetBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.ayarlar.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -59,7 +61,6 @@
             this.panel1.Controls.Add(this.sidePanel);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.addSfrBtn);
-            this.panel1.Controls.Add(this.bltBtn);
             this.panel1.Controls.Add(this.sfrBtn);
             this.panel1.Controls.Add(this.homeBtn);
             this.panel1.Controls.Add(this.panel2);
@@ -98,7 +99,7 @@
             this.addSfrBtn.ForeColor = System.Drawing.Color.White;
             this.addSfrBtn.Image = ((System.Drawing.Image)(resources.GetObject("addSfrBtn.Image")));
             this.addSfrBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.addSfrBtn.Location = new System.Drawing.Point(13, 363);
+            this.addSfrBtn.Location = new System.Drawing.Point(14, 300);
             this.addSfrBtn.Name = "addSfrBtn";
             this.addSfrBtn.Size = new System.Drawing.Size(188, 54);
             this.addSfrBtn.TabIndex = 7;
@@ -106,22 +107,6 @@
             this.addSfrBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addSfrBtn.UseVisualStyleBackColor = true;
             this.addSfrBtn.Click += new System.EventHandler(this.addSfrBtn_Click);
-            // 
-            // bltBtn
-            // 
-            this.bltBtn.FlatAppearance.BorderSize = 0;
-            this.bltBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bltBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.bltBtn.ForeColor = System.Drawing.Color.White;
-            this.bltBtn.Image = ((System.Drawing.Image)(resources.GetObject("bltBtn.Image")));
-            this.bltBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.bltBtn.Location = new System.Drawing.Point(13, 303);
-            this.bltBtn.Name = "bltBtn";
-            this.bltBtn.Size = new System.Drawing.Size(188, 54);
-            this.bltBtn.TabIndex = 7;
-            this.bltBtn.Text = "       Bilet Satışı";
-            this.bltBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.bltBtn.UseVisualStyleBackColor = true;
             // 
             // sfrBtn
             // 
@@ -248,6 +233,15 @@
             this.button6.TabIndex = 7;
             this.button6.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // seferGoster1
+            // 
+            this.seferGoster1.Location = new System.Drawing.Point(203, 210);
+            this.seferGoster1.Name = "seferGoster1";
+            this.seferGoster1.Size = new System.Drawing.Size(962, 429);
+            this.seferGoster1.TabIndex = 12;
+            this.seferGoster1.Visible = false;
             // 
             // biletSat1
             // 
@@ -270,19 +264,37 @@
             this.anasayfa1.Size = new System.Drawing.Size(959, 417);
             this.anasayfa1.TabIndex = 8;
             // 
-            // seferGoster1
+            // ayarlar
             // 
-            this.seferGoster1.Location = new System.Drawing.Point(203, 210);
-            this.seferGoster1.Name = "seferGoster1";
-            this.seferGoster1.Size = new System.Drawing.Size(962, 429);
-            this.seferGoster1.TabIndex = 12;
-            this.seferGoster1.Visible = false;
+            this.ayarlar.BackColor = System.Drawing.Color.White;
+            this.ayarlar.Controls.Add(this.kydetBtn);
+            this.ayarlar.Location = new System.Drawing.Point(992, 72);
+            this.ayarlar.Name = "ayarlar";
+            this.ayarlar.Size = new System.Drawing.Size(100, 100);
+            this.ayarlar.TabIndex = 13;
+            // 
+            // kydetBtn
+            // 
+            this.kydetBtn.FlatAppearance.BorderSize = 0;
+            this.kydetBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.kydetBtn.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.kydetBtn.Image = ((System.Drawing.Image)(resources.GetObject("kydetBtn.Image")));
+            this.kydetBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.kydetBtn.Location = new System.Drawing.Point(3, 3);
+            this.kydetBtn.Name = "kydetBtn";
+            this.kydetBtn.Size = new System.Drawing.Size(94, 45);
+            this.kydetBtn.TabIndex = 0;
+            this.kydetBtn.Text = "Kaydet";
+            this.kydetBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.kydetBtn.UseVisualStyleBackColor = true;
+            this.kydetBtn.Click += new System.EventHandler(this.kydetBtn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1161, 630);
+            this.Controls.Add(this.ayarlar);
             this.Controls.Add(this.seferGoster1);
             this.Controls.Add(this.biletSat1);
             this.Controls.Add(this.seferEkle1);
@@ -301,6 +313,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.ayarlar.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -314,7 +327,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button bltBtn;
         private System.Windows.Forms.Button sfrBtn;
         private System.Windows.Forms.Button homeBtn;
         private System.Windows.Forms.Button addSfrBtn;
@@ -326,6 +338,8 @@
         private seferEkle seferEkle1;
         private biletSat biletSat1;
         private seferGoster seferGoster1;
+        private System.Windows.Forms.Panel ayarlar;
+        private System.Windows.Forms.Button kydetBtn;
     }
 }
 
