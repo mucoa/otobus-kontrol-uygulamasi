@@ -31,6 +31,7 @@ namespace yazgel2_otobus
         public Koltuk koltuk;
         public string seferNo;
         public DateTime seferTarih;
+        public string fakeDate;
         public int yolcuKapasite;
         public string plaka;
         public string kaptan;
@@ -44,6 +45,8 @@ namespace yazgel2_otobus
     {
         public static Dugum head;
         public static Koltuk ilk;
+        public static Dugum eskihead;
+        public static List<string> gelenler;
 
         public static void OneEkle(string sfrNo, DateTime sfrTrh, string plk, string kpt, string otbs, string guzrgh, int ylcKpt, double bltFyt)
         {
@@ -114,6 +117,17 @@ namespace yazgel2_otobus
             }
 
             return seferCount;
+        }
+
+        public static Dugum sonSefer()
+        {
+            Dugum aktif = head;
+
+            while (aktif.next != null)
+            {
+                aktif = aktif.next;
+            }
+            return aktif;
         }
 
         public static void SonaEkle(string sfrNo, DateTime sfrTrh, string plk, string kpt, string otbs, string guzrgh, int ylcKpt, double bltFyt)
@@ -357,6 +371,125 @@ namespace yazgel2_otobus
 
             return sayac;
         }
+        public static int gecmisSfrSayi()
+        {
+            int seferCount = 0;
+            Dugum aktif = eskihead;
+
+            while (aktif != null)
+            {
+                aktif = aktif.next;
+                seferCount++;
+            }
+
+            return seferCount;
+
+        }
+        public static void  dosya()
+        {
+            OpenFileDialog file = new OpenFileDialog();
+            file.Filter = "txt dosyası (*.txt)|*.txt";
+            file.FilterIndex = 2;
+            file.RestoreDirectory = true;
+            file.CheckFileExists = false;
+            file.InitialDirectory = @"c:\Users\DELL\Desktop\ders\yazgel2-otobüs\kayitlar\";
+            file.Title = "Dosyayı seçiniz";
+            string DosyaYolu = "";
+            if (file.ShowDialog() == DialogResult.OK)
+            {
+                DosyaYolu = file.FileName;
+                string DosyaAdi = file.SafeFileName;
+                DosyaGetir(DosyaYolu);
+            }
+            else
+                MessageBox.Show("Dosya seçilmedi!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        public static void DosyaGetir(string yol)
+        {
+            
+            List<string> gelenSatirlar = new List<string>();
+            List<string> seferler = new List<string>();
+
+            if (yol != "")
+            {
+
+                gelenSatirlar = File.ReadAllLines(yol).ToList();
+                int i = 0;
+
+                foreach (string item in gelenSatirlar)
+                {
+                    if (i == 0)
+                    {
+                        i++;
+                        continue;
+                    }
+                    string[] asd = item.Split(' ');
+
+                    if (asd[0] != "Koltuk")
+                    {
+                        seferler.Add(item);
+                    }
+                }
+
+
+
+
+                //string seferNo, yolcuKap, sfrTarih, kaptan, guzergah, fiyat, otobus, plaka;
+                //Dugum gelen = new Dugum();
+                //Koltuk gelenK = new Koltuk(); 
+
+
+                //int i = 0;
+
+                //foreach (string item in gelenSatirlar)
+                //{
+                //    if (i == 0)
+                //    {
+                //        i++;
+                //        continue;
+                //    }
+                //    string[] degerler = item.Split(',');
+
+                //   if (degerler[0] != "Koltuk")
+                //   {
+                //            gelen.seferNo = degerler[0];
+                //            gelen.fakeDate = degerler[1];
+                //            gelen.guzergah = degerler[2];
+                //            gelen.plaka = degerler[3];
+                //            gelen.otobus = degerler[4];
+                //            gelen.biletFiyati = double.Parse(degerler[5], System.Globalization.CultureInfo.InvariantCulture);
+                //            gelen.yolcuKapasite = Int32.Parse(degerler[6]);
+                //            gelen.kaptan = degerler[7];
+
+                //            gelen.next = eskihead;
+                //        eskihead = gelen;
+                //   }
+                //   //else
+                //   //{
+                //   //     if (degerler[3] != "Boş")
+                //   //     {
+
+                //   //     }
+
+
+                //   //}
+
+                //}
+                //MessageBox.Show(""+gecmisSfrSayi());
+                MessageBox.Show("Dosya getirildi!\nListelemek için anasayfada bulunan geçmiş seferler butonuna basınız.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                gelenler = seferler;
+            }
+            else
+            {
+                MessageBox.Show("Hata", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        //public static void gelenListe()
+        //{
+
+        //}
         
         public static void DosyaKayit()
         {
@@ -369,21 +502,22 @@ namespace yazgel2_otobus
            
 
             Dugum aktif = head;
+            //int i = 1;
+
             while (aktif != null)
             {
                 Koltuk ilk = aktif.koltuk;
                 satirlar.Add(String.Format(strdetails, aktif.seferNo, aktif.seferTarih, aktif.guzergah, aktif.plaka, aktif.otobus, aktif.biletFiyati, aktif.yolcuKapasite, aktif.kaptan));
-                satirlar.Add(String.Format(strdetails, "Koltuklar", "", "", "", "", "", "", ""));
                 while (ilk != null)
                 {
                     
                     if (ilk.tcNo != null)
                     {
-                        satirlar.Add(String.Format(strdetails, "", ilk.koltukNo, ilk.tcNo, ilk.adSoyad, ilk.cepTel, ilk.cins, ilk.dTarih, ilk.mail));
+                        satirlar.Add(String.Format(strdetails, "Koltuk", ilk.koltukNo, ilk.tcNo, ilk.adSoyad, ilk.cepTel, ilk.cins, ilk.dTarih, ilk.mail));
                     }
                     else
                     {
-                        satirlar.Add(String.Format(strdetails, "", ilk.koltukNo, "Boş", "", "", "", "", ""));
+                        satirlar.Add(String.Format(strdetails, "Koltuk", ilk.koltukNo, "Boş", "", "", "", "", ""));
                     }
                     ilk = ilk.next;
                 }

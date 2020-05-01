@@ -26,7 +26,7 @@ namespace yazgel2_otobus
             otbsTip.DropDownStyle = ComboBoxStyle.DropDownList;
             guzergah.Items.AddRange(new Object[] { "---Seçiniz---","Kocaeli - Ankara", "Kocaeli - İstanbul", "Kocaeli - İzmir" });
             guzergah.SelectedIndex = 0;
-            otbsTip.Items.AddRange(new Object[] { "---Seçiniz---", "Minibüs", "Midibüs", "Otobüs", "Körüklü Otobüs", "Otobüs 2+1", "Otobüs 2+2" });
+            otbsTip.Items.AddRange(new Object[] { "---Seçiniz---", "Minibüs", "Midibüs", "Otobüs", "Körüklü Otobüs" });
             otbsTip.SelectedIndex = 0;
             sfrBox.TabIndex = 1;
             guzergah.TabIndex = 2;
@@ -39,9 +39,29 @@ namespace yazgel2_otobus
             vzgBtn.TabIndex = 9;
             ekleBtn.TabIndex = 10;
             ylcBox.MaxLength = 2;
+            
 
-  
-
+        }
+        
+        public void sfrGetir()
+        {
+            if (LinkedList.seferSayisi() > 0)
+            {
+                Dugum son = LinkedList.sonSefer();
+                string sferNo = son.seferNo;
+                string newStr = sferNo.Substring(3, 1);
+                int no = Int32.Parse(newStr);
+                no++;
+                string yeniSfre = "sfr" + no.ToString();
+                sfrBox.Text = yeniSfre;
+                sfrBox.Enabled = false;
+                sfrNoGtr.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Sefer numarası bulunamadı dosyadan getirmek için butonu kullanın yada el ile yazınız.", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                sfrNoGtr.Visible = true;
+            }
         }
 
         private void ekleBtn_Click(object sender, EventArgs e)
@@ -65,12 +85,12 @@ namespace yazgel2_otobus
                     LinkedList.SonaEkle(sfrBox.Text.ToUpper(), trhBox.Value, plkBox.Text.ToUpper(), kptBox.Text, otbsTip.SelectedItem.ToString(), guzergah.SelectedItem.ToString(), yolcu, fiyat);
 
                     fytBox.Text = "";
-                    sfrBox.Text = "";
                     kptBox.Text = "";
                     plkBox.Text = "";
                     ylcBox.Text = "";
                     otbsTip.SelectedIndex = 0;
                     guzergah.SelectedIndex = 0;
+                    sfrGetir();
                 }
                 
             }
@@ -84,7 +104,7 @@ namespace yazgel2_otobus
         {
             Char chr = e.KeyChar;
 
-            if (!Char.IsLetter(chr) && chr != 8 && chr != 46)
+            if (!Char.IsLetter(chr) && chr != 8 && chr != 32)
             {
 
                 e.Handled = true;
@@ -130,8 +150,27 @@ namespace yazgel2_otobus
                 MessageBox.Show("Lütfen tip seçiniz !", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        
 
+        private void sfrNoGtr_Click(object sender, EventArgs e)
+        {
+            List<string> sfrlist = new List<string>();
 
+            if (LinkedList.gelenler != null)
+            {
+                sfrlist = LinkedList.gelenler;
+                int sayi = sfrlist.Count-1;
+                string[] bolme = sfrlist[sayi].Split(' ');
+                string yeni = bolme[0].Substring(3, 1);
+                int deger = Int32.Parse(yeni);
+                deger++;
+                sfrBox.Text = "sfr" + deger;
+                sfrBox.Enabled = false;
+                sfrNoGtr.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Önce ayarlar sekmesinden geçmiş sefer getiriniz!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

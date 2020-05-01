@@ -49,6 +49,7 @@
             this.otobus = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.plaka = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.yolcuKapasitesi = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.sfrGelir = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.duzenPanel = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -71,7 +72,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.geriBtn = new System.Windows.Forms.Button();
             this.duzenleBtn = new System.Windows.Forms.Button();
-            this.sfrGelir = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.kpt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel1.SuspendLayout();
             this.duzenPanel.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -230,7 +231,8 @@
             this.otobus,
             this.plaka,
             this.yolcuKapasitesi,
-            this.sfrGelir});
+            this.sfrGelir,
+            this.kpt});
             this.sfrView.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.sfrView.FullRowSelect = true;
             this.sfrView.GridLines = true;
@@ -279,6 +281,12 @@
             this.yolcuKapasitesi.Text = "Boşluk / Kapasite";
             this.yolcuKapasitesi.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.yolcuKapasitesi.Width = 150;
+            // 
+            // sfrGelir
+            // 
+            this.sfrGelir.Text = "Gelir";
+            this.sfrGelir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.sfrGelir.Width = 40;
             // 
             // duzenPanel
             // 
@@ -524,10 +532,10 @@
             this.duzenleBtn.UseVisualStyleBackColor = false;
             this.duzenleBtn.Click += new System.EventHandler(this.duzenleBtn_Click);
             // 
-            // sfrGelir
+            // kpt
             // 
-            this.sfrGelir.Text = "Gelir";
-            this.sfrGelir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.kpt.Text = "Kaptan";
+            this.kpt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // seferGoster
             // 
@@ -594,5 +602,6 @@
         private System.Windows.Forms.Button geriBtn;
         private System.Windows.Forms.Button duzenleBtn;
         private System.Windows.Forms.ColumnHeader sfrGelir;
+        private System.Windows.Forms.ColumnHeader kpt;
     }
 }

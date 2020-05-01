@@ -43,12 +43,14 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.ayarlar = new System.Windows.Forms.Panel();
+            this.kytGtrBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.kydetBtn = new System.Windows.Forms.Button();
             this.seferGoster1 = new yazgel2_otobus.seferGoster();
             this.biletSat1 = new yazgel2_otobus.biletSat();
             this.seferEkle1 = new yazgel2_otobus.seferEkle();
             this.anasayfa1 = new yazgel2_otobus.anasayfa();
-            this.ayarlar = new System.Windows.Forms.Panel();
-            this.kydetBtn = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -235,6 +237,64 @@
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
+            // ayarlar
+            // 
+            this.ayarlar.BackColor = System.Drawing.Color.White;
+            this.ayarlar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ayarlar.Controls.Add(this.kytGtrBtn);
+            this.ayarlar.Controls.Add(this.button1);
+            this.ayarlar.Controls.Add(this.kydetBtn);
+            this.ayarlar.Location = new System.Drawing.Point(1022, 72);
+            this.ayarlar.Name = "ayarlar";
+            this.ayarlar.Size = new System.Drawing.Size(100, 100);
+            this.ayarlar.TabIndex = 13;
+            // 
+            // kytGtrBtn
+            // 
+            this.kytGtrBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.kytGtrBtn.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.kytGtrBtn.Image = ((System.Drawing.Image)(resources.GetObject("kytGtrBtn.Image")));
+            this.kytGtrBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.kytGtrBtn.Location = new System.Drawing.Point(-1, 51);
+            this.kytGtrBtn.Name = "kytGtrBtn";
+            this.kytGtrBtn.Size = new System.Drawing.Size(100, 48);
+            this.kytGtrBtn.TabIndex = 0;
+            this.kytGtrBtn.Text = "           Getir";
+            this.kytGtrBtn.UseVisualStyleBackColor = true;
+            this.kytGtrBtn.Click += new System.EventHandler(this.kytGtrBtn_Click);
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(3, 54);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 45);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Kaydet";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.kydetBtn_Click);
+            // 
+            // kydetBtn
+            // 
+            this.kydetBtn.FlatAppearance.BorderSize = 0;
+            this.kydetBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.kydetBtn.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.kydetBtn.Image = ((System.Drawing.Image)(resources.GetObject("kydetBtn.Image")));
+            this.kydetBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.kydetBtn.Location = new System.Drawing.Point(-1, 0);
+            this.kydetBtn.Name = "kydetBtn";
+            this.kydetBtn.Size = new System.Drawing.Size(98, 49);
+            this.kydetBtn.TabIndex = 0;
+            this.kydetBtn.Text = "Kaydet";
+            this.kydetBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.kydetBtn.UseVisualStyleBackColor = true;
+            this.kydetBtn.Click += new System.EventHandler(this.kydetBtn_Click);
+            // 
             // seferGoster1
             // 
             this.seferGoster1.Location = new System.Drawing.Point(203, 210);
@@ -263,31 +323,6 @@
             this.anasayfa1.Name = "anasayfa1";
             this.anasayfa1.Size = new System.Drawing.Size(959, 417);
             this.anasayfa1.TabIndex = 8;
-            // 
-            // ayarlar
-            // 
-            this.ayarlar.BackColor = System.Drawing.Color.White;
-            this.ayarlar.Controls.Add(this.kydetBtn);
-            this.ayarlar.Location = new System.Drawing.Point(992, 72);
-            this.ayarlar.Name = "ayarlar";
-            this.ayarlar.Size = new System.Drawing.Size(100, 100);
-            this.ayarlar.TabIndex = 13;
-            // 
-            // kydetBtn
-            // 
-            this.kydetBtn.FlatAppearance.BorderSize = 0;
-            this.kydetBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.kydetBtn.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.kydetBtn.Image = ((System.Drawing.Image)(resources.GetObject("kydetBtn.Image")));
-            this.kydetBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.kydetBtn.Location = new System.Drawing.Point(3, 3);
-            this.kydetBtn.Name = "kydetBtn";
-            this.kydetBtn.Size = new System.Drawing.Size(94, 45);
-            this.kydetBtn.TabIndex = 0;
-            this.kydetBtn.Text = "Kaydet";
-            this.kydetBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.kydetBtn.UseVisualStyleBackColor = true;
-            this.kydetBtn.Click += new System.EventHandler(this.kydetBtn_Click);
             // 
             // Form1
             // 
@@ -340,6 +375,8 @@
         private seferGoster seferGoster1;
         private System.Windows.Forms.Panel ayarlar;
         private System.Windows.Forms.Button kydetBtn;
+        private System.Windows.Forms.Button kytGtrBtn;
+        private System.Windows.Forms.Button button1;
     }
 }
 

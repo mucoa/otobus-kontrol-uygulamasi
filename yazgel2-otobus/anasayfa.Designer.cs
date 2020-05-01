@@ -41,22 +41,32 @@
             this.biletFiyat = new System.Windows.Forms.Label();
             this.adSoyad = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.toplamBtn = new System.Windows.Forms.Button();
             this.iptalBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.ylcLbl = new System.Windows.Forms.Label();
             this.sfrLbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.toplamBtn = new System.Windows.Forms.Button();
+            this.closeAra = new System.Windows.Forms.PictureBox();
+            this.lisPanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.sfrListbox = new System.Windows.Forms.ListBox();
+            this.gcmsSefer = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.iptalPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.closeAra)).BeginInit();
+            this.lisPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.lisPanel);
             this.panel1.Controls.Add(this.iptalPanel);
             this.panel1.Controls.Add(this.toplamBtn);
+            this.panel1.Controls.Add(this.gcmsSefer);
             this.panel1.Controls.Add(this.iptalBtn);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.ylcLbl);
@@ -70,6 +80,7 @@
             // iptalPanel
             // 
             this.iptalPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.iptalPanel.Controls.Add(this.closeAra);
             this.iptalPanel.Controls.Add(this.tcBox);
             this.iptalPanel.Controls.Add(this.araBtn);
             this.iptalPanel.Controls.Add(this.iptalEtBtn);
@@ -80,15 +91,15 @@
             this.iptalPanel.Controls.Add(this.biletFiyat);
             this.iptalPanel.Controls.Add(this.adSoyad);
             this.iptalPanel.Controls.Add(this.label6);
-            this.iptalPanel.Location = new System.Drawing.Point(520, 42);
+            this.iptalPanel.Location = new System.Drawing.Point(431, 32);
             this.iptalPanel.Name = "iptalPanel";
-            this.iptalPanel.Size = new System.Drawing.Size(342, 310);
+            this.iptalPanel.Size = new System.Drawing.Size(444, 310);
             this.iptalPanel.TabIndex = 2;
             // 
             // tcBox
             // 
             this.tcBox.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tcBox.Location = new System.Drawing.Point(180, 66);
+            this.tcBox.Location = new System.Drawing.Point(235, 61);
             this.tcBox.Name = "tcBox";
             this.tcBox.Size = new System.Drawing.Size(117, 26);
             this.tcBox.TabIndex = 1;
@@ -98,7 +109,7 @@
             this.araBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.araBtn.Image = ((System.Drawing.Image)(resources.GetObject("araBtn.Image")));
             this.araBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.araBtn.Location = new System.Drawing.Point(227, 104);
+            this.araBtn.Location = new System.Drawing.Point(282, 99);
             this.araBtn.Name = "araBtn";
             this.araBtn.Size = new System.Drawing.Size(70, 36);
             this.araBtn.TabIndex = 1;
@@ -112,7 +123,7 @@
             this.iptalEtBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.iptalEtBtn.Image = ((System.Drawing.Image)(resources.GetObject("iptalEtBtn.Image")));
             this.iptalEtBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.iptalEtBtn.Location = new System.Drawing.Point(96, 232);
+            this.iptalEtBtn.Location = new System.Drawing.Point(151, 227);
             this.iptalEtBtn.Name = "iptalEtBtn";
             this.iptalEtBtn.Size = new System.Drawing.Size(160, 62);
             this.iptalEtBtn.TabIndex = 1;
@@ -124,7 +135,7 @@
             // sfrBox
             // 
             this.sfrBox.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.sfrBox.Location = new System.Drawing.Point(180, 28);
+            this.sfrBox.Location = new System.Drawing.Point(235, 23);
             this.sfrBox.Name = "sfrBox";
             this.sfrBox.Size = new System.Drawing.Size(117, 26);
             this.sfrBox.TabIndex = 1;
@@ -133,7 +144,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(18, 69);
+            this.label4.Location = new System.Drawing.Point(73, 64);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(144, 20);
             this.label4.TabIndex = 0;
@@ -143,7 +154,7 @@
             // 
             this.blt.AutoSize = true;
             this.blt.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.blt.Location = new System.Drawing.Point(183, 188);
+            this.blt.Location = new System.Drawing.Point(238, 183);
             this.blt.Name = "blt";
             this.blt.Size = new System.Drawing.Size(89, 20);
             this.blt.TabIndex = 0;
@@ -153,7 +164,7 @@
             // 
             this.ad.AutoSize = true;
             this.ad.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.ad.Location = new System.Drawing.Point(183, 144);
+            this.ad.Location = new System.Drawing.Point(238, 139);
             this.ad.Name = "ad";
             this.ad.Size = new System.Drawing.Size(89, 20);
             this.ad.TabIndex = 0;
@@ -163,7 +174,7 @@
             // 
             this.biletFiyat.AutoSize = true;
             this.biletFiyat.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.biletFiyat.Location = new System.Drawing.Point(79, 188);
+            this.biletFiyat.Location = new System.Drawing.Point(134, 183);
             this.biletFiyat.Name = "biletFiyat";
             this.biletFiyat.Size = new System.Drawing.Size(83, 20);
             this.biletFiyat.TabIndex = 0;
@@ -173,7 +184,7 @@
             // 
             this.adSoyad.AutoSize = true;
             this.adSoyad.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.adSoyad.Location = new System.Drawing.Point(73, 144);
+            this.adSoyad.Location = new System.Drawing.Point(128, 139);
             this.adSoyad.Name = "adSoyad";
             this.adSoyad.Size = new System.Drawing.Size(89, 20);
             this.adSoyad.TabIndex = 0;
@@ -183,11 +194,25 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(41, 31);
+            this.label6.Location = new System.Drawing.Point(96, 26);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(121, 20);
             this.label6.TabIndex = 0;
             this.label6.Text = "Sefer Numarası:";
+            // 
+            // toplamBtn
+            // 
+            this.toplamBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.toplamBtn.Image = ((System.Drawing.Image)(resources.GetObject("toplamBtn.Image")));
+            this.toplamBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toplamBtn.Location = new System.Drawing.Point(99, 290);
+            this.toplamBtn.Name = "toplamBtn";
+            this.toplamBtn.Size = new System.Drawing.Size(165, 62);
+            this.toplamBtn.TabIndex = 1;
+            this.toplamBtn.Text = "Toplam Gelir";
+            this.toplamBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.toplamBtn.UseVisualStyleBackColor = true;
+            this.toplamBtn.Click += new System.EventHandler(this.toplamBtn_Click);
             // 
             // iptalBtn
             // 
@@ -254,19 +279,65 @@
             this.label3.TabIndex = 1;
             this.label3.Text = "  Anasayfa   ";
             // 
-            // toplamBtn
+            // closeAra
             // 
-            this.toplamBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.toplamBtn.Image = ((System.Drawing.Image)(resources.GetObject("toplamBtn.Image")));
-            this.toplamBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.toplamBtn.Location = new System.Drawing.Point(99, 290);
-            this.toplamBtn.Name = "toplamBtn";
-            this.toplamBtn.Size = new System.Drawing.Size(165, 62);
-            this.toplamBtn.TabIndex = 1;
-            this.toplamBtn.Text = "Toplam Gelir";
-            this.toplamBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.toplamBtn.UseVisualStyleBackColor = true;
-            this.toplamBtn.Click += new System.EventHandler(this.toplamBtn_Click);
+            this.closeAra.Image = ((System.Drawing.Image)(resources.GetObject("closeAra.Image")));
+            this.closeAra.Location = new System.Drawing.Point(415, -1);
+            this.closeAra.Name = "closeAra";
+            this.closeAra.Size = new System.Drawing.Size(24, 24);
+            this.closeAra.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.closeAra.TabIndex = 4;
+            this.closeAra.TabStop = false;
+            this.closeAra.Click += new System.EventHandler(this.closeAra_Click);
+            // 
+            // lisPanel
+            // 
+            this.lisPanel.AutoScroll = true;
+            this.lisPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(20)))), ((int)(((byte)(96)))));
+            this.lisPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lisPanel.Controls.Add(this.pictureBox1);
+            this.lisPanel.Controls.Add(this.sfrListbox);
+            this.lisPanel.Location = new System.Drawing.Point(320, 18);
+            this.lisPanel.Name = "lisPanel";
+            this.lisPanel.Size = new System.Drawing.Size(592, 352);
+            this.lisPanel.TabIndex = 6;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(563, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(24, 24);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 6;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // sfrListbox
+            // 
+            this.sfrListbox.BackColor = System.Drawing.SystemColors.Control;
+            this.sfrListbox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.sfrListbox.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.sfrListbox.FormattingEnabled = true;
+            this.sfrListbox.ItemHeight = 20;
+            this.sfrListbox.Location = new System.Drawing.Point(-1, 31);
+            this.sfrListbox.Name = "sfrListbox";
+            this.sfrListbox.Size = new System.Drawing.Size(729, 302);
+            this.sfrListbox.TabIndex = 5;
+            // 
+            // gcmsSefer
+            // 
+            this.gcmsSefer.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.gcmsSefer.Image = ((System.Drawing.Image)(resources.GetObject("gcmsSefer.Image")));
+            this.gcmsSefer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.gcmsSefer.Location = new System.Drawing.Point(566, 114);
+            this.gcmsSefer.Name = "gcmsSefer";
+            this.gcmsSefer.Size = new System.Drawing.Size(184, 62);
+            this.gcmsSefer.TabIndex = 1;
+            this.gcmsSefer.Text = "Geçmiş Seferler";
+            this.gcmsSefer.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.gcmsSefer.UseVisualStyleBackColor = true;
+            this.gcmsSefer.Click += new System.EventHandler(this.gcmsSefer_Click);
             // 
             // anasayfa
             // 
@@ -280,6 +351,10 @@
             this.panel1.PerformLayout();
             this.iptalPanel.ResumeLayout(false);
             this.iptalPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.closeAra)).EndInit();
+            this.lisPanel.ResumeLayout(false);
+            this.lisPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -306,5 +381,10 @@
         private System.Windows.Forms.Button araBtn;
         private System.Windows.Forms.Button iptalEtBtn;
         private System.Windows.Forms.Button toplamBtn;
+        private System.Windows.Forms.PictureBox closeAra;
+        private System.Windows.Forms.Panel lisPanel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ListBox sfrListbox;
+        private System.Windows.Forms.Button gcmsSefer;
     }
 }

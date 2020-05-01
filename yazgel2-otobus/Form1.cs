@@ -40,6 +40,7 @@ namespace yazgel2_otobus
         {
             sidePanel.Height = addSfrBtn.Height;
             sidePanel.Top = addSfrBtn.Top;
+            seferEkle1.sfrGetir();
             seferEkle1.BringToFront();
         }
 
@@ -62,6 +63,7 @@ namespace yazgel2_otobus
                 MessageBox.Show("Sefer bulunamadı! Lütfen sefer ekleyip tekrar deneyiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 sidePanel.Height = addSfrBtn.Height;
                 sidePanel.Top = addSfrBtn.Top;
+                seferEkle1.sfrGetir();
                 seferEkle1.BringToFront();
             }            
         }
@@ -110,6 +112,12 @@ namespace yazgel2_otobus
         private void kydetBtn_Click(object sender, EventArgs e)
         {
             LinkedList.DosyaKayit();
+        }
+
+        private void kytGtrBtn_Click(object sender, EventArgs e)
+        {
+            anasayfa1.basilma();
+            LinkedList.dosya();
         }
     }
 }

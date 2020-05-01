@@ -51,10 +51,21 @@ namespace yazgel2_otobus
         {
             //var item = sfrView.CheckedItems[0];
             //MessageBox.Show(item.SubItems[0].Text);
+            
             foreach (ListViewItem item in sfrView.CheckedItems)
             {
-                sfrView.Items.Remove(item);
-                LinkedList.silme(item.SubItems[0].Text);
+                Dugum suanki=LinkedList.dugumuGetir(item.SubItems[0].Text);
+
+                if (LinkedList.koltukSayi(suanki) == suanki.yolcuKapasite)
+                {
+                    sfrView.Items.Remove(item);
+                    LinkedList.silme(item.SubItems[0].Text);
+                }
+                else
+                {
+                    MessageBox.Show("Silinmek istenen sefer/sefeler de bilet satışı yapılmıştır.\nSefer silinemez!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                
             }
         }
 
@@ -80,7 +91,7 @@ namespace yazgel2_otobus
                 if (item.seferTarih.Date.ToString("dd/MM/yyyy") == e.Start.Date.ToString("dd/MM/yyyy"))
                 {
                     i++;
-                    var row = new string[] { item.seferNo, item.seferTarih.ToString(), item.guzergah, item.otobus, item.plaka, LinkedList.koltukSayi(item).ToString() + "/(" + item.yolcuKapasite + ")" };
+                    var row = new string[] { item.seferNo, item.seferTarih.ToString(), item.guzergah, item.otobus, item.plaka, LinkedList.koltukSayi(item).ToString() + "/(" + item.yolcuKapasite + ")", item.kaptan };
                     var lvi = new ListViewItem(row);
                     if (i % 2 != 0)
                         lvi.BackColor = SystemColors.Control;
@@ -103,7 +114,7 @@ namespace yazgel2_otobus
                 if (item.seferNo.ToString().ToLower().Contains(araTxt.Text.ToLower()) || item.otobus.ToString().ToLower().Contains(araTxt.Text.ToLower()) || item.plaka.ToString().ToLower().Contains(araTxt.Text.ToLower()) || item.guzergah.ToString().ToLower().Contains(araTxt.Text.ToLower()) || item.kaptan.ToString().ToLower().Contains(araTxt.Text.ToLower()))
                 {
                     i++;
-                    var row = new string[] { item.seferNo, item.seferTarih.ToString(), item.guzergah, item.otobus, item.plaka, LinkedList.koltukSayi(item).ToString() + "/(" + item.yolcuKapasite + ")" };
+                    var row = new string[] { item.seferNo, item.seferTarih.ToString(), item.guzergah, item.otobus, item.plaka, LinkedList.koltukSayi(item).ToString() + "/(" + item.yolcuKapasite + ")", item.kaptan };
                     var lvi = new ListViewItem(row);
                     if (i % 2 != 0)
                         lvi.BackColor = SystemColors.Control;
@@ -150,7 +161,7 @@ namespace yazgel2_otobus
                 otbsTip.DropDownStyle = ComboBoxStyle.DropDownList;
                 guzergah.Items.AddRange(new Object[] { "---Seçiniz---", "Kocaeli - Ankara", "Kocaeli - İstanbul", "Kocaeli - İzmir" });
                 guzergah.SelectedIndex = 0;
-                otbsTip.Items.AddRange(new Object[] { "---Seçiniz---", "Minibüs", "Midibüs", "Otobüs", "Körüklü Otobüs", "Otobüs 2+1", "Otobüs 2+2" });
+                otbsTip.Items.AddRange(new Object[] { "---Seçiniz---", "Minibüs", "Midibüs", "Otobüs", "Körüklü Otobüs" });
                 otbsTip.SelectedIndex = 0;
                 sfrBox.TabIndex = 1;
                 guzergah.TabIndex = 2;

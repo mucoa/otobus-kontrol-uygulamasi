@@ -52,6 +52,7 @@
             this.ekleBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.sfrNoGtr = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +60,7 @@
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.sfrNoGtr);
             this.panel1.Controls.Add(this.otbsTip);
             this.panel1.Controls.Add(this.guzergah);
             this.panel1.Controls.Add(this.trhBox);
@@ -297,6 +299,17 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
+            // sfrNoGtr
+            // 
+            this.sfrNoGtr.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.sfrNoGtr.Location = new System.Drawing.Point(493, 39);
+            this.sfrNoGtr.Name = "sfrNoGtr";
+            this.sfrNoGtr.Size = new System.Drawing.Size(108, 29);
+            this.sfrNoGtr.TabIndex = 7;
+            this.sfrNoGtr.Text = "SeferNo Getir";
+            this.sfrNoGtr.UseVisualStyleBackColor = true;
+            this.sfrNoGtr.Click += new System.EventHandler(this.sfrNoGtr_Click);
+            // 
             // seferEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,5 +349,6 @@
         private System.Windows.Forms.Button ekleBtn;
         private System.Windows.Forms.ComboBox guzergah;
         private System.Windows.Forms.ComboBox otbsTip;
+        private System.Windows.Forms.Button sfrNoGtr;
     }
 }

@@ -313,7 +313,7 @@ namespace yazgel2_otobus
         {
             Char chr = e.KeyChar;
 
-            if (!Char.IsLetter(chr) && chr != 8)
+            if (!Char.IsLetter(chr) && chr != 8 && chr != 32)
             {
                 e.Handled = true;
                 MessageBox.Show("Lütfen bir harf giriniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);

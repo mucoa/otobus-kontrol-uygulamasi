@@ -16,6 +16,7 @@ namespace yazgel2_otobus
         ArrayList koltuk = new ArrayList();
         Dugum sefer;
         int kolno;
+        bool basildiMi = false;
 
         public anasayfa()
         {
@@ -28,6 +29,9 @@ namespace yazgel2_otobus
             biletFiyat.Visible = false;
             adSoyad.Visible = false;
             iptalEtBtn.Visible = false;
+            sfrLbl.Text = "0";
+            ylcLbl.Text = "0";
+            lisPanel.Visible = false;
             
 
             tcBox.MaxLength = 11;
@@ -43,6 +47,29 @@ namespace yazgel2_otobus
             sfrLbl.Text = LinkedList.seferSayisi().ToString();
             ylcLbl.Text = LinkedList.toplamYolcu().ToString();
 
+        }
+
+        public void listele()
+        {
+            sfrListbox.Items.Clear();
+            List<string> gelenler = new List<string>();
+            string strdetails = "{0, -20}{1, -20}{2,-20}{3, -20}{4, -20}{5, -20}{6, -20}{7, -20}";
+            sfrListbox.Items.Add(String.Format(strdetails, "Sefer No", "Sefer Tarih", "Guzergah", "Plaka", "OtobusTip", "BiletFiyat", "YolcuKapasite", "Kaptan"));
+
+            if (LinkedList.gelenler.Count != 0)
+            {
+                gelenler = LinkedList.gelenler;
+                foreach (string item in gelenler)
+                {
+                    sfrListbox.Items.Add(item);
+                }
+                lisPanel.Visible = true;
+            }
+            else
+            {
+                MessageBox.Show("Liste getirlemedi!","Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void araBtn_Click(object sender, EventArgs e)
@@ -106,6 +133,35 @@ namespace yazgel2_otobus
         private void toplamBtn_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Toplam gelir : " + LinkedList.toplamGelir().ToString() + "₺", "", MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
+
+        private void closeAra_Click(object sender, EventArgs e)
+        {
+            iptalPanel.Visible = false;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            lisPanel.Visible = false;
+        }
+
+        private void gcmsSefer_Click(object sender, EventArgs e)
+        {
+            if (!basildiMi)
+            {
+                MessageBox.Show("Önce ayarlar sekmesinden geçmiş sefer getiriniz!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                listele();
+            }
+        }
+        public void basilma()
+        {
+            //if (LinkedList.gelenler.Count != 0)
+            {
+                basildiMi = true;
+            }
         }
     }
 }
