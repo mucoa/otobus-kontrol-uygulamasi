@@ -197,6 +197,7 @@ namespace yazgel2_otobus
 
         }
 
+
         public static void koltukEkle(Dugum aktif, int konum)
         {
             Koltuk yeniKoltuk = new Koltuk();
@@ -479,6 +480,7 @@ namespace yazgel2_otobus
                 //MessageBox.Show(""+gecmisSfrSayi());
                 MessageBox.Show("Dosya getirildi!\nListelemek için anasayfada bulunan geçmiş seferler butonuna basınız.", "Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 gelenler = seferler;
+
             }
             else
             {
@@ -486,10 +488,10 @@ namespace yazgel2_otobus
             }
         }
 
-        //public static void gelenListe()
-        //{
+        public static void gecmisSefelr()
+        {
 
-        //}
+        }
         
         public static void DosyaKayit()
         {

@@ -37,7 +37,7 @@ namespace yazgel2_otobus
             {
                 i++;
                 double gelir = item.yolcuKapasite-LinkedList.koltukSayi(item);
-                var row = new string[] { item.seferNo, item.seferTarih.ToString(), item.guzergah, item.otobus, item.plaka, LinkedList.koltukSayi(item).ToString() + "/("+item.yolcuKapasite+")", (gelir*item.biletFiyati).ToString()+ "₺" };
+                var row = new string[] { item.seferNo, item.seferTarih.ToString(), item.guzergah, item.otobus, item.plaka, LinkedList.koltukSayi(item).ToString() + "/("+item.yolcuKapasite+")", (gelir*item.biletFiyati).ToString()+ "₺", item.kaptan };
                 var lvi = new ListViewItem(row);
                 if (i % 2 != 0)
                     lvi.BackColor = SystemColors.Control;
@@ -192,28 +192,38 @@ namespace yazgel2_otobus
         }
         private void duzenleBtn_Click(object sender, EventArgs e)
         {
-            string sefernumarasi = sfrView.CheckedItems[0].SubItems[0].Text;
-            Dugum seciliSefer = LinkedList.dugumuGetir(sefernumarasi);
-            if (otbsTip.SelectedIndex != 0 && guzergah.SelectedIndex != 0 && fytBox.Text != "" && ylcBox.Text != "" && plkBox.Text != "" && sfrBox.Text != "" && kptBox.Text != "")
+            if (sfrView.CheckedItems.Count == 1)
             {
-                double fiyat = double.Parse(fytBox.Text);
-                int yolcu = Int32.Parse(ylcBox.Text);
-                if (yolcu > 56)
+                string sefernumarasi = sfrView.CheckedItems[0].SubItems[0].Text;
+
+
+                Dugum seciliSefer = LinkedList.dugumuGetir(sefernumarasi);
+                if (otbsTip.SelectedIndex != 0 && guzergah.SelectedIndex != 0 && fytBox.Text != "" && ylcBox.Text != "" && plkBox.Text != "" && sfrBox.Text != "" && kptBox.Text != "")
                 {
-                    yolcu = 56;
-                }
-                if (!LinkedList.sfrKontrol(sfrBox.Text) && seciliSefer.seferNo != sfrBox.Text)
-                {
-                    MessageBox.Show("Bu sefer numarasına kayıtlı bir sefer bulunmaktadır!\nLütfen farklı bir sefer numarası girin.", "Sefer Numarası", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    sfrBox.Text = "";
-                }
-                else
-                {
-                    LinkedList.dugumDuzenle(seciliSefer, sfrBox.Text.ToUpper(), trhBox.Value, plkBox.Text.ToUpper(), kptBox.Text, otbsTip.SelectedItem.ToString(), guzergah.SelectedItem.ToString(), yolcu, fiyat);
-                    duzenPanel.Visible = false;
-                    ListSefer();
+                    double fiyat = double.Parse(fytBox.Text);
+                    int yolcu = Int32.Parse(ylcBox.Text);
+                    if (yolcu > 56)
+                    {
+                        yolcu = 56;
+                    }
+                    if (!LinkedList.sfrKontrol(sfrBox.Text) && seciliSefer.seferNo != sfrBox.Text)
+                    {
+                        MessageBox.Show("Bu sefer numarasına kayıtlı bir sefer bulunmaktadır!\nLütfen farklı bir sefer numarası girin.", "Sefer Numarası", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        sfrBox.Text = "";
+                    }
+                    else
+                    {
+                        LinkedList.dugumDuzenle(seciliSefer, sfrBox.Text.ToUpper(), trhBox.Value, plkBox.Text.ToUpper(), kptBox.Text, otbsTip.SelectedItem.ToString(), guzergah.SelectedItem.ToString(), yolcu, fiyat);
+                        duzenPanel.Visible = false;
+                        ListSefer();
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("Lütfen sadece 1 sefer seçin!","",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+            
         }
 
         private void ylcBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -264,7 +274,7 @@ namespace yazgel2_otobus
         {
             Char chr = e.KeyChar;
 
-            if (!Char.IsLetter(chr) && chr != 8 && chr != 46)
+            if (!Char.IsLetter(chr) && chr != 8 && chr != 32)
             {
 
                 e.Handled = true;

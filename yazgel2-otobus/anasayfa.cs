@@ -44,7 +44,12 @@ namespace yazgel2_otobus
 
         public void anasayf()
         {
-            sfrLbl.Text = LinkedList.seferSayisi().ToString();
+            int count = 0;
+            if (LinkedList.gelenler != null)
+            {
+               count = LinkedList.gelenler.Count;
+            }
+            sfrLbl.Text = (LinkedList.seferSayisi()+count).ToString();
             ylcLbl.Text = LinkedList.toplamYolcu().ToString();
 
         }

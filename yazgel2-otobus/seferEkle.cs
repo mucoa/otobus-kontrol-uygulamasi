@@ -172,5 +172,21 @@ namespace yazgel2_otobus
                 MessageBox.Show("Önce ayarlar sekmesinden geçmiş sefer getiriniz!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void seferEkle_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void vzgBtn_Click(object sender, EventArgs e)
+        {
+            fytBox.Text = "";
+            kptBox.Text = "";
+            plkBox.Text = "";
+            ylcBox.Text = "";
+            otbsTip.SelectedIndex = 0;
+            guzergah.SelectedIndex = 0;
+
+        }
     }
 }

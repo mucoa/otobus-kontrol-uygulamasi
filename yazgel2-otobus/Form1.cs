@@ -112,12 +112,14 @@ namespace yazgel2_otobus
         private void kydetBtn_Click(object sender, EventArgs e)
         {
             LinkedList.DosyaKayit();
+            ayarlar.Visible = false;
         }
 
         private void kytGtrBtn_Click(object sender, EventArgs e)
         {
             anasayfa1.basilma();
             LinkedList.dosya();
+            ayarlar.Visible = false;
         }
     }
 }

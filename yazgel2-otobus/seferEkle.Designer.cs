@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(seferEkle));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.sfrNoGtr = new System.Windows.Forms.Button();
             this.otbsTip = new System.Windows.Forms.ComboBox();
             this.guzergah = new System.Windows.Forms.ComboBox();
             this.trhBox = new System.Windows.Forms.DateTimePicker();
@@ -52,7 +53,6 @@
             this.ekleBtn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.sfrNoGtr = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -82,6 +82,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(929, 395);
             this.panel1.TabIndex = 1;
+            // 
+            // sfrNoGtr
+            // 
+            this.sfrNoGtr.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.sfrNoGtr.Location = new System.Drawing.Point(493, 39);
+            this.sfrNoGtr.Name = "sfrNoGtr";
+            this.sfrNoGtr.Size = new System.Drawing.Size(108, 29);
+            this.sfrNoGtr.TabIndex = 7;
+            this.sfrNoGtr.Text = "SeferNo Getir";
+            this.sfrNoGtr.UseVisualStyleBackColor = true;
+            this.sfrNoGtr.Click += new System.EventHandler(this.sfrNoGtr_Click);
             // 
             // otbsTip
             // 
@@ -265,6 +276,7 @@
             this.vzgBtn.Text = "   Vazgeç";
             this.vzgBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.vzgBtn.UseVisualStyleBackColor = true;
+            this.vzgBtn.Click += new System.EventHandler(this.vzgBtn_Click);
             // 
             // ekleBtn
             // 
@@ -299,17 +311,6 @@
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
             // 
-            // sfrNoGtr
-            // 
-            this.sfrNoGtr.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.sfrNoGtr.Location = new System.Drawing.Point(493, 39);
-            this.sfrNoGtr.Name = "sfrNoGtr";
-            this.sfrNoGtr.Size = new System.Drawing.Size(108, 29);
-            this.sfrNoGtr.TabIndex = 7;
-            this.sfrNoGtr.Text = "SeferNo Getir";
-            this.sfrNoGtr.UseVisualStyleBackColor = true;
-            this.sfrNoGtr.Click += new System.EventHandler(this.sfrNoGtr_Click);
-            // 
             // seferEkle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,6 +319,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "seferEkle";
             this.Size = new System.Drawing.Size(962, 429);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.seferEkle_KeyPress);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
