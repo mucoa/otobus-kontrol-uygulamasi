@@ -1,0 +1,14 @@
+Sefer No            Sefer Tarih         Guzergah            Plaka               OtobusTip           BiletFiyat          YolcuKapasite       Kaptan              
+SFR6                1.05.2020 17:52:58  Kocaeli - İstanbul  32AD31              Midibüs             12                  12                  Mehmet              
+Koltuk              1                   Boş                                                                                                                     
+Koltuk              2                   Boş                                                                                                                     
+Koltuk              3                   Boş                                                                                                                     
+Koltuk              4                   12222222222         asd                 12333333333         rezerve             31/12/2001          asd                 
+Koltuk              5                   Boş                                                                                                                     
+Koltuk              6                   Boş                                                                                                                     
+Koltuk              7                   Boş                                                                                                                     
+Koltuk              8                   Boş                                                                                                                     
+Koltuk              9                   Boş                                                                                                                     
+Koltuk              10                  Boş                                                                                                                     
+Koltuk              11                  Boş                                                                                                                     
+Koltuk              12                  Boş                                                                                                                     

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
@@ -46,7 +47,19 @@ namespace yazgel2_otobus
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Close();
+            var path = @"c:\Users\DELL\Desktop\ders\yazgel2-otobüs\kayitlar\" + DateTime.Now.Date.ToString("dd/MM/yyyy") + ".txt";
+            if (!File.Exists(path))
+            {
+                DialogResult sonuc= MessageBox.Show("Günlük kayıt işlemi gerçekleştirilmemiştir!","Çıkış",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (sonuc == DialogResult.Yes)
+                {
+                    Close();
+                }
+            }
+            else
+            {
+                Close();
+            }
         }
 
         public void sfrBtn_Click(object sender, EventArgs e)
